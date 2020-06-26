@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, Fragment } from 'react'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
 import { AuthContext } from '../context/AuthContext'
-import { Button, TextField, Grid, Paper, Typography } from '@material-ui/core'
+import { Button, TextField, Grid, Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -17,11 +17,6 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiButton-root': {
       marginRight: theme.spacing(1)
     },
-  },
-  paper: {
-    padding: theme.spacing(2),
-    color: theme.palette.text.secondary,
-    marginTop: theme.spacing(3),
   },
 }));
 
@@ -45,7 +40,7 @@ export const AuthPage = () => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
 
-   const registerHandler = async () => {
+  const registerHandler = async () => {
     try {
       const data = await request('/api/auth/register', 'POST', { ...form })
       showMessage(data.message)
@@ -66,15 +61,16 @@ export const AuthPage = () => {
       <Grid container direction="row" justify="center">
         <Grid item xs={10} sm={8} md={6} lg={4}>
 
-          <Typography align="center" variant="h3">Сократи ссылку</Typography>
-          <Paper className={classes.paper} elevation={10}>
-            <form className={classes.root} noValidate autoComplete="off">
-              <Grid container spacing={2} direction="column" justify="center" alignItems="stretch" >
-                <Grid item>
-                  <Typography variant="h4">Авторизация</Typography>
-                </Grid>
 
-                <Grid item>
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" style={{ minHeight: "100vh" }} >
+            <Box pb={3} color="primary.main" textAlign="center" fontWeight="fontWeightBold" fontSize={50}>Сократи ссылку</Box>
+            <Box p={1} boxShadow={10}>
+              <form className={classes.root} noValidate autoComplete="off">
+                <Box color="text.primary" m={1} textAlign="center" fontWeight="fontWeightBold" fontSize={30}>
+                  Авторизация
+                </Box>
+
+                <Box m={1}>
                   <TextField
                     label="Введите email"
                     type="text"
@@ -92,9 +88,9 @@ export const AuthPage = () => {
                     name="password"
                     onChange={changeHandler}
                   />
-                </Grid>
+                </Box>
 
-                <Grid item>
+                <Box m={1} mt={3}>
                   <Button
                     color="primary"
                     variant="contained"
@@ -107,11 +103,10 @@ export const AuthPage = () => {
                     onClick={registerHandler}
                     disabled={loading}
                   >Регистрация</Button>
-                </Grid>
-              </Grid>
-
-            </form>
-          </Paper>
+                </Box>
+              </form>
+            </Box>
+          </Box>
         </Grid>
       </Grid>
 
