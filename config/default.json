@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "jwtSecret": "apm777 youtube mern",
+  "mongoUri": "mongodb+srv://apm777:04020204@cluster0-h5fdb.azure.mongodb.net/merndb?retryWrites=true&w=majority"
+}

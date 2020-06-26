@@ -1,0 +1,40 @@
+{
+  "name": "mern-course",
+  "version": "1.0.0",
+  "description": "mern course",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apm777/mern-course.git"
+  },
+  "keywords": [
+    "js",
+    "mango",
+    "express",
+    "react"
+  ],
+  "author": "apm777 <apm777@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apm777/mern-course/issues"
+  },
+  "homepage": "https://github.com/apm777/mern-course#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.17"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
