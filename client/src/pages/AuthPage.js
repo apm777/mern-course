@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(1),
       width: '100%',
     },
+
     '& .MuiButton-root': {
       marginRight: theme.spacing(1)
     },
@@ -63,14 +64,17 @@ export const AuthPage = () => {
 
 
           <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" style={{ minHeight: "100vh" }} >
+
             <Box pb={3} color="primary.main" textAlign="center" fontWeight="fontWeightBold" fontSize={50}>Сократи ссылку</Box>
-            <Box p={1} boxShadow={10}>
+            
+            <Box p={1} boxShadow={10} width={1}>
+            
               <form className={classes.root} noValidate autoComplete="off">
-                <Box color="text.primary" m={1} textAlign="center" fontWeight="fontWeightBold" fontSize={30}>
+                <Box color="text.primary" m={1} textAlign="center" fontWeight="fontWeightBold" fontSize={26} style={{ textTransform: "uppercase"}}>
                   Авторизация
                 </Box>
 
-                <Box m={1}>
+                <Box display="flex" flexDirection="column" m={1} mt={5} mb={5}>
                   <TextField
                     label="Введите email"
                     type="text"
