@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, Fragment } from 'react'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
 import { AuthContext } from '../context/AuthContext'
-import { Button, TextField, Grid, Box } from '@material-ui/core'
+import { Button, TextField, Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -59,60 +59,54 @@ export const AuthPage = () => {
 
   return (
     <Fragment>
-      <Grid container direction="row" justify="center">
-        <Grid item xs={10} sm={8} md={6} lg={4}>
-
-
-          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" style={{ minHeight: "100vh" }} >
-
-            <Box pb={3} color="primary.main" textAlign="center" fontWeight="fontWeightBold" fontSize={50}>Сократи ссылку</Box>
-            
-            <Box p={1} boxShadow={10} width={1}>
-            
-              <form className={classes.root} noValidate autoComplete="off">
-                <Box color="text.primary" m={1} textAlign="center" fontWeight="fontWeightBold" fontSize={26} style={{ textTransform: "uppercase"}}>
-                  Авторизация
-                </Box>
-
-                <Box display="flex" flexDirection="column" m={1} mt={5} mb={5}>
-                  <TextField
-                    label="Введите email"
-                    type="text"
-                    variant="outlined"
-                    id="email"
-                    name="email"
-                    onChange={changeHandler}
-                  />
-                  <TextField
-                    label="Введите пароль"
-                    type="password"
-                    autoComplete="current-password"
-                    variant="outlined"
-                    id="password"
-                    name="password"
-                    onChange={changeHandler}
-                  />
-                </Box>
-
-                <Box m={1} mt={3}>
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    disabled={loading}
-                    onClick={loginHandler}
-                  >Войти</Button>
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    onClick={registerHandler}
-                    disabled={loading}
-                  >Регистрация</Button>
-                </Box>
-              </form>
+      <Box bgcolor="#f6f7fb" display="flex" flexDirection="column" alignItems="center" justifyContent="center" style={{ minHeight: "100vh" }} >
+        
+        <Box bgcolor="#ffffff" p={1} boxShadow={10} width={350}>
+          <Box pb={3} color="primary.main" fontWeight="fontWeightBold" fontSize={20}>Сократи ссылку</Box>
+          <form className={classes.root} noValidate autoComplete="off">
+            <Box color="text.primary" m={1} textAlign="center" fontWeight="fontWeightBold" fontSize={26} style={{ textTransform: "uppercase" }}>
+              Вход
             </Box>
-          </Box>
-        </Grid>
-      </Grid>
+
+            <Box display="flex" flexDirection="column" m={1} mt={3} mb={3}>
+              <TextField
+                label="Введите email"
+                type="text"
+                variant="outlined"
+                id="email"
+                name="email"
+                value={form.email}
+                onChange={changeHandler}
+              />
+              <TextField
+                label="Введите пароль"
+                type="password"
+                autoComplete="current-password"
+                variant="outlined"
+                id="password"
+                name="password"
+                value={form.password}
+                onChange={changeHandler}
+              />
+            </Box>
+
+            <Box m={1} mt={3}>
+              <Button
+                color="primary"
+                variant="contained"
+                disabled={loading}
+                onClick={loginHandler}
+              >Войти</Button>
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={registerHandler}
+                disabled={loading}
+              >Регистрация</Button>
+            </Box>
+          </form>
+        </Box>
+      </Box>
 
       <Alert />
 

@@ -3,11 +3,10 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { NavLink, useHistory } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { AuthContext } from '../context/AuthContext'
-import { Button, Menu, MenuItem } from '@material-ui/core';
+import { Button, Menu, MenuItem, Typography } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
@@ -123,7 +122,7 @@ function Navbar() {
               <div className={classes.grow} />
               <div className={classes.sectionDesktop}>
                 <Button color="inherit"><NavLink className={classes.astyle} to="/create">Создать</NavLink></Button>
-                <Button color="inherit"><NavLink className={classes.astyle} to="/links">Список ссылок</NavLink></Button>
+                <Button color="inherit"><NavLink className={classes.astyle} to="/links">Ссылки</NavLink></Button>
                 <Button color="inherit" component="a" href="/" onClick={logoutHandler}>Выйти</Button>
               </div>
               <div className={classes.sectionMobile}>
